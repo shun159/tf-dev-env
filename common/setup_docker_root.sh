@@ -174,7 +174,7 @@ function set_docker_mtu() {
       echo "INFO: rhel8.x - nothing to do to podman"
       ;;
     *)
-      ifconfig docker0 mtu $default_iface_mtu || true
+      ip link set dev docker0 mtu $default_iface_mtu || true
       ;;
   esac
 }
